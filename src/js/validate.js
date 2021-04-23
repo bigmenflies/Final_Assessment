@@ -2,24 +2,24 @@ function validate(event) {
 
   var lat = document.getElementById('latitude').value;
   var lng = document.getElementById('longitude').value;
-  const valid = true;
+  var valid = true;
 
   var errLat = document.getElementById('errorLat');
   var errLng = document.getElementById('errorLng');
 
   if(valid === true){
 
-    if(!(lat < -90 && lat > 90)){
+    if(lat < -90 || lat > 90 || isNaN(lat)){
       valid = false;
-      errLat.innerText = "must be a valid Latitude (-90 to 90)";
+      errLat.innerText = " must be a valid Latitude (-90 to 90)";
     }
     else{
       errLat.innerText = "";
     }
 
-    if(!(lng < -180 && lng > 180)){
+    if(lng < -180 || lng > 180 || isNaN(lng)){
       valid = false;
-      errLng.innerText = "must be a valid Longitude (-180 to 180)";
+      errLng.innerText = " must be a valid Longitude (-180 to 180)";
     }
     else{
       errLng.innerText = "";
